@@ -7,12 +7,11 @@ function App() {
     <div
       className="container border border-primary rounded mt-5"
       style={{
-        background: `url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMmDXrn-5hjWZ3iLWqwilPWJ63EwgO-pL5ZnTSM0UBILx7thbIXs0za2KdvwZCeyuRef8&usqp=CAU)`,
+        background: `url(https://wallpaperaccess.com/full/187161.jpg)`,
         backgroundSize: "cover",
       }}
     >
-      <h1>Welcome To the todo app</h1>
-      <Todo/>
+      <Todo />
     </div>
   );
 }

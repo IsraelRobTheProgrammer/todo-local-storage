@@ -31,26 +31,30 @@ export default function Todo() {
     localStorage.removeItem("localTasks");
   };
   return (
-    <div className="container row">
-      <h1 className="mt-3 text-white">To-Do App</h1>
-      <div className="col-8">
-        <input
-          name="task"
-          type="text"
-          value={task}
-          placeholder="Write your task..."
-          className="form-control"
-          onChange={(e) => setTask(e.target.value)}
-        />
-      </div>
-      <div className="col-4">
-        <button
-          className="btn btn-primary form-control material-icons"
-          onClick={addTask}
+    <section className="section-center container row">
+      <form onSubmit={addTask}>
+        <h3
+          className="mt-3"
+          style={{ marginBottom: "1.5rem", textAlign: "center" }}
         >
-          add
-        </button>
-      </div>
+          Todo App With LocalStorage
+        </h3>
+
+        <div className="mb-3 form">
+          <input
+            name="task"
+            type="text"
+            value={task}
+            placeholder="Write your task..."
+            className="form-control"
+            onChange={(e) => setTask(e.target.value)}
+          />
+          <button type="submit" className="btn btn-success material-icons">
+            add
+          </button>
+        </div>
+      </form>
+
       <div className="badge">
         You have
         {!tasks.length
@@ -61,6 +65,7 @@ export default function Todo() {
           ? ` ${tasks.length} tasks`
           : null}
       </div>
+
       {tasks.map((task) => (
         <React.Fragment key={task.id}>
           <div className="col-11">
@@ -74,7 +79,7 @@ export default function Todo() {
 
           <div className="col-1">
             <button
-              className=" mt-2 btn btn-warning material-icons"
+              className="mt-2 btn btn-danger material-icons"
               onClick={() => handleDelete(task)}
             >
               delete
@@ -83,15 +88,17 @@ export default function Todo() {
         </React.Fragment>
       ))}
       {!tasks.length ? null : (
-        <div>
-          <button
-            className="btn btn-secondary  mt-4 mb-4"
-            onClick={() => handleClear()}
-          >
-            Clear
-          </button>
+        <div style={{ marginTop: "2rem" }}>
+          <div className="text-center">
+            <button
+              className="btn btn-warning mt-4 mb-4"
+              onClick={() => handleClear()}
+            >
+              Clear List
+            </button>
+          </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }
